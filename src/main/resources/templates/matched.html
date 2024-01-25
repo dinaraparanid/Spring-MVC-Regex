@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVC Regex</title>
+</head>
+<style>
+    .substr-item {
+        position: relative;
+        display: block;
+
+        font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+        font-size: 16px;
+        line-height: 1.5;
+
+        border-radius: 2px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+        background-color: mediumpurple;
+        color: white;
+    }
+
+    .material-text {
+        position: relative;
+        text-align: center;
+
+        display: block;
+        margin: 30px auto;
+        padding: 0;
+
+        overflow: hidden;
+
+        border-width: 0;
+        outline: none;
+
+        font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+        font-size: 18px;
+        line-height: 1.5;
+    }
+</style>
+<body>
+<div style="margin: auto; width: 15%; padding-top: 20px">
+    <ul th:each="substr : ${repository.shownMatches}">
+        <li class="substr-item" style="padding: 5px">
+            <span th:text="*{view.SubstringView(substr)}"/>
+        </li>
+    </ul>
+
+    <p class="material-text">
+        <span th:text="*{view.TotalMatchesLabel(repository.totalMatches)}"/>
+    </p>
+</div>
+</body>
+</html>
