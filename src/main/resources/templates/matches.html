@@ -38,6 +38,27 @@
         transition: border 0.2s, box-shadow 0.2s;
     }
 
+    .pure-material-textfield-outlined > input:invalid,
+    .pure-material-textfield-outlined > textarea:invalid {
+        box-sizing: border-box;
+        margin: 0;
+        border: solid 1px; /* Safari */
+        border-color: red;
+        border-top-color: transparent;
+        border-radius: 4px;
+        padding: 15px 13px 15px;
+        width: 100%;
+        height: inherit;
+        color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+        background-color: transparent;
+        box-shadow: none; /* Firefox */
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        caret-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+        transition: border 0.2s, box-shadow 0.2s;
+    }
+
     /* Span */
     .pure-material-textfield-outlined > input + span,
     .pure-material-textfield-outlined > textarea + span {
@@ -46,6 +67,22 @@
         left: 0;
         display: flex;
         border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+        width: 100%;
+        max-height: 100%;
+        color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+        font-size: 75%;
+        line-height: 15px;
+        cursor: text;
+        transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+    }
+
+    .pure-material-textfield-outlined > input:invalid + span,
+    .pure-material-textfield-outlined > textarea:invalid + span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        border-color: red;
         width: 100%;
         max-height: 100%;
         color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
@@ -66,6 +103,23 @@
         margin-top: 6px;
         border-top: solid 1px;
         border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+        min-width: 10px;
+        height: 8px;
+        pointer-events: none;
+        box-shadow: inset 0 1px transparent;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .pure-material-textfield-outlined > input:invalid + span::before,
+    .pure-material-textfield-outlined > input:invalid + span::after,
+    .pure-material-textfield-outlined > textarea:invalid + span::before,
+    .pure-material-textfield-outlined > textarea:invalid + span::after {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        margin-top: 6px;
+        border-top: solid 1px;
+        border-top-color: red;
         min-width: 10px;
         height: 8px;
         pointer-events: none;
@@ -95,6 +149,12 @@
         border-top-color: transparent;
     }
 
+    .pure-material-textfield-outlined:hover > input:invalid,
+    .pure-material-textfield-outlined:hover > textarea:invalid {
+        border-color: red;
+        border-top-color: transparent;
+    }
+
     .pure-material-textfield-outlined:hover > input + span::before,
     .pure-material-textfield-outlined:hover > textarea + span::before,
     .pure-material-textfield-outlined:hover > input + span::after,
@@ -102,15 +162,32 @@
         border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
     }
 
+    .pure-material-textfield-outlined:hover > input:invalid + span::before,
+    .pure-material-textfield-outlined:hover > textarea:invalid + span::before,
+    .pure-material-textfield-outlined:hover > input:invalid + span::after,
+    .pure-material-textfield-outlined:hover > textarea:invalid + span::after {
+        border-top-color: red;
+    }
+
     .pure-material-textfield-outlined:hover > input:not(:focus):placeholder-shown,
     .pure-material-textfield-outlined:hover > textarea:not(:focus):placeholder-shown {
         border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+    }
+
+    .pure-material-textfield-outlined:hover > input:not(:focus):placeholder-shown:invalid,
+    .pure-material-textfield-outlined:hover > textarea:not(:focus):placeholder-shown:invalid {
+        border-color: red;
     }
 
     /* Placeholder-shown */
     .pure-material-textfield-outlined > input:not(:focus):placeholder-shown,
     .pure-material-textfield-outlined > textarea:not(:focus):placeholder-shown {
         border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    }
+
+    .pure-material-textfield-outlined > input:not(:focus):placeholder-shown:invalid,
+    .pure-material-textfield-outlined > textarea:not(:focus):placeholder-shown:invalid {
+        border-top-color: red
     }
 
     .pure-material-textfield-outlined > input:not(:focus):placeholder-shown + span,
@@ -135,6 +212,14 @@
         outline: none;
     }
 
+    .pure-material-textfield-outlined > input:focus:invalid,
+    .pure-material-textfield-outlined > textarea:focus:invalid {
+        border-color: red;
+        border-top-color: transparent;
+        box-shadow: inset 1px 0 var(--pure-material-safari-helper1), inset -1px 0 var(--pure-material-safari-helper1), inset 0 -1px var(--pure-material-safari-helper1);
+        outline: none;
+    }
+
     .pure-material-textfield-outlined > input:focus + span,
     .pure-material-textfield-outlined > textarea:focus + span {
         color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
@@ -145,6 +230,14 @@
     .pure-material-textfield-outlined > textarea:focus + span::before,
     .pure-material-textfield-outlined > textarea:focus + span::after {
         border-top-color: var(--pure-material-safari-helper1) !important;
+        box-shadow: inset 0 1px var(--pure-material-safari-helper1);
+    }
+
+    .pure-material-textfield-outlined > input:focus:invalid + span::before,
+    .pure-material-textfield-outlined > input:focus:invalid + span::after,
+    .pure-material-textfield-outlined > textarea:focus:invalid + span::before,
+    .pure-material-textfield-outlined > textarea:focus:invalid + span::after {
+        border-top-color: red !important;
         box-shadow: inset 0 1px var(--pure-material-safari-helper1);
     }
 
@@ -159,6 +252,16 @@
         pointer-events: none;
     }
 
+    .pure-material-textfield-outlined > input:disabled:invalid,
+    .pure-material-textfield-outlined > input:disabled:invalid + span,
+    .pure-material-textfield-outlined > textarea:disabled:invalid,
+    .pure-material-textfield-outlined > textarea:disabled:invalid + span {
+        border-color: red !important;
+        border-top-color: transparent !important;
+        color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+        pointer-events: none;
+    }
+
     .pure-material-textfield-outlined > input:disabled + span::before,
     .pure-material-textfield-outlined > input:disabled + span::after,
     .pure-material-textfield-outlined > textarea:disabled + span::before,
@@ -166,11 +269,25 @@
         border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
     }
 
+    .pure-material-textfield-outlined > input:disabled:invalid + span::before,
+    .pure-material-textfield-outlined > input:disabled:invalid + span::after,
+    .pure-material-textfield-outlined > textarea:disabled:invalid + span::before,
+    .pure-material-textfield-outlined > textarea:disabled:invalid + span::after {
+        border-top-color: darkred !important;
+    }
+
     .pure-material-textfield-outlined > input:disabled:placeholder-shown,
     .pure-material-textfield-outlined > input:disabled:placeholder-shown + span,
     .pure-material-textfield-outlined > textarea:disabled:placeholder-shown,
     .pure-material-textfield-outlined > textarea:disabled:placeholder-shown + span {
         border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+    }
+
+    .pure-material-textfield-outlined > input:disabled:placeholder-shown:invalid,
+    .pure-material-textfield-outlined > input:disabled:placeholder-shown:invalid + span,
+    .pure-material-textfield-outlined > textarea:disabled:placeholder-shown:invalid,
+    .pure-material-textfield-outlined > textarea:disabled:placeholder-shown:invalid + span {
+        border-top-color: darkred !important;
     }
 
     .pure-material-textfield-outlined > input:disabled:placeholder-shown + span::before,
@@ -265,18 +382,27 @@
 <form action="/matched">
     <div style="margin: auto; width: 15%; padding-top: 20px">
         <label class="pure-material-textfield-outlined">
-            <input placeholder=" " th:field="*{form_model.textInput}">
+            <input
+                    placeholder=" "
+                    required pattern="[a-zA-Zа-яА-Я0-9,.;-\s]+"
+                    th:field="*{form_model.textInput}">
             <span>Text Input</span>
         </label>
         <div style="padding-top: 20px">
             <label class="pure-material-textfield-outlined">
-                <input placeholder=" " th:field="*{form_model.regexInput}">
+                <input
+                        placeholder=" "
+                        th:field="*{form_model.regexInput}"
+                        required>
                 <span>Regex Input</span>
             </label>
         </div>
         <div style="padding-top: 20px">
             <label class="pure-material-textfield-outlined">
-                <input placeholder=" " th:field="*{form_model.takeInput}">
+                <input
+                        placeholder=" "
+                        required pattern="([1-9]{1})([0-9]*)"
+                        th:field="*{form_model.takeInput}">
                 <span>Take Input</span>
             </label>
         </div>
