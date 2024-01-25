@@ -22,7 +22,7 @@ class AppController {
     @Volatile
     private var hasErrorInInput: Boolean = false
 
-    @GetMapping("/matches")
+    @GetMapping("/")
     fun matches(model: Model): String {
         model.addAttribute("form_model", FormModel())
         return "matches"
